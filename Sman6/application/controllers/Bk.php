@@ -89,38 +89,56 @@
 		}
 		
 		function display_chart() {
-		$aa = $data['label'] = $this->Model_bk->get_label()->result();
-		//var_dump($aa);
-		//$cek = $data['jumlah_pelanggaran'] = $this->m_index->get_total_per_label()->row();
+			$aa = $data['label'] = $this->Model_bk->get_label()->result();
+			$cek = $data['jumlah_pelanggaran'] = $this->Model_bk->get_total_per_label()->row();
 
-	//	var_dump($cek);
-		$jumlah_array = count($aa);
-		for ($i=0; $i < $jumlah_array ; $i++) { 
-			//echo $aa[$i]->kategoripelanggaran;
-			$tahun = $this->input->post('tahun');
-			$bulan = $this->input->post('bulan');
-			if ($tahun!=null) 
-			{
-				if ($bulan!=null) {
-					$cek = $data['jumlah_pelanggaran'] = $this->Model_bk->get_total_per_label($aa[$i]->jenisPelanggaran,$tahun,$bulan)->row();
+				// var_dump($cek);
+				// exit;
+			$jumlah_array = count($aa);
+			for ($i=0; $i < $jumlah_array ; $i++) { 
+				//echo $aa[$i]->kategoripelanggaran;
+				$tahun = $this->input->post('tahun');
+				// $tahun = 2017;
+				$bulan = $this->input->post('bulan');
+				// $bulan = 6;
+				if ($tahun!=null) 
+				{
+					if ($bulan!=null) {
+						$cek = $data['jumlah_pelanggaran'] = $this->Model_bk->get_total_per_label($aa[$i]->jenisPelanggaran,$tahun,$bulan)->row();
+					}
+					else
+					{
+						$cek = $data['jumlah_pelanggaran'] = $this->Model_bk->get_total_per_label($aa[$i]->jenisPelanggaran,$tahun)->row();
+
+					}	
 				}
 				else
 				{
-					$cek = $data['jumlah_pelanggaran'] = $this->Model_bk->get_total_per_label($aa[$i]->jenisPelanggaran,$tahun)->row();
+					$cek = $data['jumlah_pelanggaran'] = $this->Model_bk->get_total_per_label($aa[$i]->jenisPelanggaran)->row();
 
-				}	
-			}
-			else
-			{
-				$cek = $data['jumlah_pelanggaran'] = $this->Model_bk->get_total_per_label($aa[$i]->jenisPelanggaran)->row();
+				}
 
+				$hasil[]= $cek->jumlah;
 			}
 
-			$hasil[]= $cek->jumlah;
+			$data['hasil_data'] = implode(",",$hasil);
+			$data['pelanggaran'] = $this->Model_bk->chartPelanggaran();
+			$this->load->view('pelanggaran/grafik_pelanggaran',$data);
 		}
-		$data['hasil_data'] = implode(",",$hasil);
-		$data['pelanggaran'] = $this->Model_bk->chartPelanggaran();
-		$this->load->view('pelanggaran/grafik_pelanggaran',$data);
+
+		function getChartData()
+		{
+			$tahun = isset($_GET['tahun']) ? $_GET['tahun'] : date("Y");
+			$bulan = isset($_GET['bulan']) ? $_GET['bulan'] : date("m");
+
+			$data = [
+				'larangan_siswa' 	=> $this->Model_bk->getPelanggaran($tahun, 'Larangan Siswa'),
+				'kerajinan'			=> $this->Model_bk->getPelanggaran($tahun, 'Kerajinan'),
+				'kerapihan' 		=> $this->Model_bk->getPelanggaran($tahun, 'Kerapihan'),
+				'kelas_terbaik' 	=> $this->Model_bk->getKelasTerbaik2($tahun, $bulan),
+			];
+
+			echo json_encode($data);
 		}
 		//akhir grafik pelanggaran
 

@@ -18,22 +18,7 @@ limitations under the License.*/
 
 
 /* Global Styles */
-img#logo{
-    float: left;
-  width: 55px;
-  background: #555;
-}
 
-h2#logo{
-    position: relative;
-  left: 25px;
-  margin: 10px;
-  color: black;
-}
-
-.navbar-brand {
-    width: 500px;
-}
 /* ------------------------------- */
 
  body {
@@ -55,6 +40,10 @@ h2#logo{
     min-height: 568px;
      background-color:rgb(209, 212, 216);
 }
+
+
+
+    
 
 .navbar-static-side ul li {
     border-bottom:1px solid #84B899 !important;

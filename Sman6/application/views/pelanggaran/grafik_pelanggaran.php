@@ -11,11 +11,15 @@
     <link href="<?php echo base_url()?>assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
     <link href="<?php echo base_url()?>assets/css/style.css" rel="stylesheet" />
     <link href="<?php echo base_url()?>assets/css/main-style.css" rel="stylesheet" />
+    <link href="<?php echo base_url()?>assets/bootstrapchart/css/mdb.min.css" rel="stylesheet" />
+    <link href="<?php echo base_url()?>assets/bootstrapchart/css/style.min.css" rel="stylesheet" />
     <!-- Page-Level CSS -->
     <link href="<?php echo base_url()?>assets/plugins/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    
     <link href="<?php echo base_url()?>css/gaya.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/scripts/jquery-1.4.3.min.js"></script>
-
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/bootstrapchart/js/mdb.min.js"></script>
+    
     <script type="text/javascript">
             $(document).ready(function() {
                 des();
@@ -212,12 +216,6 @@
                 
 <div class="container">
         <div class="row">
-           
-           
-        </div>
-    </div>
-<div class="container">
-        <div class="row">
             
             
             <!-- Here begin Main Content -->
@@ -226,7 +224,7 @@
                     <div class="col-md-12">
                         <div class="widget-item">
                             <form action="<?php echo base_url ()?>/index.php/bk/display_chart" method="post">
-                            <select name="tahun"> 
+                            <select name="tahun" id="tahunFilter"> 
                                 
                                 <?php 
                                     
@@ -235,24 +233,8 @@
                                 echo "<option> $i </option>";
                             }?></select>
                             
-                            <select name="bulan"> 
-                                <option value="">Pilih Bulan</option>
-
-                            <?php 
-                                for ($i=01; $i < 13; $i++) 
-                                {
-                                   if ($i<10) {
-                                        echo "<option value='0".$i."'>0".$i."</option>";
-                                    }
-                                    else
-                                    {
-                                       echo "<option value='".$i."'>".$i."</option>";
-                                    } 
-                                }
-                            ?>
-                            </select>
-                            
-                            <input name="button" type="submit">
+                            <!-- <input name="button" type="submit"> -->
+                            <input name="button" id="filterBtn" type="button" value="submit">
                             </form>
                             <tr>
                             Grafik Dihitung Berdasarkan Katagori Pelanggaran Nilai Sikap Perbulannya
@@ -261,20 +243,160 @@
                             </tr>
                             <div class="form-group">
                             <br>
-                            
-                            <!DOCTYPE HTML>
                 </div>  
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>Highcharts Example</title>
+<div class="container">
+    <div class="row" style="background-color:white">
+        <div class="col-sm-6">
+            <h3>Larangan Siswa</h3>
+            <canvas id="myChart" style="max-width: 600px;"></canvas>
+        </div>
+        <div class="col-sm-6">
+            <h3>Kerajinan</h3>
+            <canvas id="myChart2" style="max-width: 600px;"></canvas>
+        </div>
+        <div class="col-sm-6">
+            <h3>Kerapihan</h3>
+            <canvas id="myChart3" style="max-width: 600px;"></canvas>
+        </div>
+    </div>
+</div>
+
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <style type="text/css">
             ${demo.css}
         </style>
     <script type="text/javascript">
-    
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var ctx2 = document.getElementById("myChart2").getContext('2d');
+    var ctx3 = document.getElementById("myChart3").getContext('2d');
+
+    $(document).on('ready', function(){
+        var d = new Date();
+        var year = d.getFullYear();
+        getChartData(year);
+    });
+
+    $('#filterBtn').on('click', function(){
+        var tahun = $('#tahunFilter').val();
+        if (tahun == '') {
+            var d = new Date();
+            var tahun = d.getFullYear();
+        }
+        getChartData(tahun);
+    });
+
+    function getChartData(tahun) {
+        $.ajax({
+            url: "<?php echo base_url()?>index.php/bk/getChartData",
+            type: "GET",
+            dataType: "JSON",
+            data: { 
+                "tahun" : tahun 
+            },
+            success: function(response){
+                var kerajinan = response.kerajinan;
+                var kerapihan = response.kerapihan;
+                var larangan_siswa = response.larangan_siswa;
+                
+                var dataKerajinan = [];
+                $.each(kerajinan, function( index, value ) {
+                    var res = value.tanggalPelanggaran.split("-");
+                    var bulan = res[1];
+                    // var bulan = bulan.replace("0", "");
+                    for (var i = 1 ; i <= 12; i++) {
+                        if (i == bulan) {
+                            dataKerajinan[i] = value.pelanggaran;
+                        }
+                    }
+                });
+
+                var dataKerapihan = [];
+                $.each(kerapihan, function( index, value ) {
+                    var res = value.tanggalPelanggaran.split("-");
+                    var bulan = res[1];
+                    // var bulan = bulan.replace("0", "");
+                    for (var i = 1 ; i <= 12; i++) {
+                        if (i == bulan) {
+                            dataKerapihan[i] = value.pelanggaran;
+                        }
+                    }
+                });
+
+                var dataLarangan = [];
+                $.each(larangan_siswa, function( index, value ) {
+                    var res = value.tanggalPelanggaran.split("-");
+                    var bulan = res[1];
+                    // var bulan = bulan.replace("0", "");
+                    for (var i = 1 ; i <= 12; i++) {
+                        if (i == bulan) {
+                            dataLarangan[i] = value.pelanggaran;
+                        }
+                    }
+                });
+                console.log(dataKerapihan);
+
+                charGrafik(ctx, dataLarangan);
+                charGrafik(ctx2, dataKerajinan);
+                charGrafik(ctx3, dataKerapihan);
+            },
+            error: function(response){
+                console.log(response);
+            }
+        });
+    }
+
+    function charGrafik(ctxAttr, data) {
+        var myChart = new Chart(ctxAttr, {
+            type: 'bar',
+            data: {
+            labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Sep", "Des"],
+            datasets: [{
+                label: '# of Votes',
+                data: data,
+                backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                ],
+                borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                ],
+                borderWidth: 1
+            }]
+            },
+            options: {
+            scales: {
+                yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+                }]
+            }
+            }
+        });
+    }
+
 $(function () {
     $('#container').highcharts({
         title: {
@@ -334,14 +456,8 @@ $(function () {
         ]
     });
 });
-        </script>
-    </head>
-    <body>
-
-<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-
-    </body>
-</html>
+</script>
+    
 
                             </div>
                             <p><strong>

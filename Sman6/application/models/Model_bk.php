@@ -752,5 +752,43 @@ class Model_bk extends CI_Model{
 			return $row;
 		}
 	//akhir kirim sms
+
+		function getPelanggaran($tahun, $jenisPelanggaran)
+		{
+			$result = $this->db->query('
+				SELECT 
+					*, 
+					count(tanggalPelanggaran) as pelanggaran
+				FROM 
+					data_pelanggaran
+				WHERE
+					jenisPelanggaran = "'.$jenisPelanggaran.'"
+				AND
+					tanggalPelanggaran LIKE "'.$tahun.'%"
+				GROUP BY
+					tanggalPelanggaran
+			')->result();
+			return $result;
+		}
+
+		function getKelasTerbaik2($tahun, $bulan) 
+		{
+			$bulan = str_pad($bulan, 2, "0", STR_PAD_LEFT);
+			$query = $this->db->query('
+				select 
+					siswa.kelasSiswa, 
+					data_pelanggaran.tanggalPelanggaran, 
+					count(siswa.kelasSiswa) as banyak 
+				from 
+					data_pelanggaran 
+				join 
+					siswa on siswa.idSiswa = data_pelanggaran.idSiswa 
+				WHERE 
+					data_pelanggaran.tanggalPelanggaran LIKE "'.$tahun.'-'.$bulan.'%"
+				group by 
+					siswa.kelasSiswa
+			')->result();
+			return $query;
+		}
 	}
 ?>	
