@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootsrtap Free Admin Template - SIMINTA | Admin Dashboad Template</title>
+    <title>Aplikasi APESI SMAN 6 Surabaya</title>
     <!-- Core CSS - Include with every page -->
     <link href="<?php echo base_url()?>assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
     <link href="<?php echo base_url()?>assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="<?php echo base_url()?>assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
-    <link href="<?php echo base_url()?>assets/css/style.css" rel="stylesheet" />
+    <link href="<?php echo base_url()?>assets/css/style.css?<?php echo time(); ?>" rel="stylesheet" />
     <link href="<?php echo base_url()?>assets/css/main-style.css" rel="stylesheet" />
     <!-- Page-Level CSS -->
     <link href="<?php echo base_url()?>assets/plugins/morris/morris-0.4.3.min.css" rel="stylesheet" />
@@ -62,7 +62,8 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="index.html">
-                    <img src="<?php echo base_url()?>assets/img/logoSmanam.jpg" alt="" class="img-square" style="width:100px; height: 45px" />
+                    <img id="logo" src="<?php echo base_url()?>assets/img/logoSmanam.jpg" alt="" class="img-square" style="height:55px;" />
+                    <h2 id="logo"> APESI - SMAN 6 Surabaya </h2>
                 </a>      
             </div>
             <!-- end navbar-header -->
@@ -256,7 +257,7 @@
     <script src="<?php echo base_url()?>assets/plugins/jquery-1.10.2.js"></script>
     <script src="<?php echo base_url()?>assets/plugins/bootstrap/bootstrap.min.js"></script>
     <script src="<?php echo base_url()?>assets/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="<?php echo base_url()?>assets/plugins/pace/pace.js"></script>
+    <!-- <script src="<?php echo base_url()?>assets/plugins/pace/pace.js"></script> -->
     <script src="<?php echo base_url()?>assets/scripts/siminta.js"></script>
     <!-- Page-Level Plugin Scripts-->
     <script src="<?php echo base_url()?>assets/plugins/morris/raphael-2.1.0.min.js"></script>
