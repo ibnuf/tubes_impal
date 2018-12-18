@@ -130,7 +130,7 @@
                         <!--end user image section-->
                     </li>
                     <li>
-                        <a href="<?php echo site_url()?>/bk/admin_page"><i class="fa fa-home fa-fw"></i> Beranda</a>
+                        <a href="<?php echo site_url()?>/bk/admin_page"><i class="fa fa-home fa-fw"></i> Dashboard</a>
                     </li>                
                     
                     <li>
@@ -200,7 +200,7 @@
             <div class="row">
                  <!-- page header -->
                 <div class="col-lg-12">
-                    <h4 class="page-header">Tambah Data Peraturan Pelanggaran Kerajinan</h4>
+                    <h4 class="page-header">Update Data Peraturan Pelanggaran Larangan Siswa</h4>
                 </div>
                 <!--end page header -->
             </div>

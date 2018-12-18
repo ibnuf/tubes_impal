@@ -133,7 +133,7 @@
                         <!--end user image section-->
                     </li>
                     <li>
-                        <a href="<?php echo site_url()?>/bk/admin_page"><i class="fa fa-home fa-fw"></i> Beranda</a>
+                        <a href="<?php echo site_url()?>/bk/admin_page"><i class="fa fa-home fa-fw"></i> Dashboard</a>
                     </li>                
                     
                     <li>
@@ -240,7 +240,7 @@
                         <canvas id="myChart3" style="max-width: 600px;"></canvas>
                     </div>
                     <div class="col-sm-6">
-                        <h3>Kelas Terbaik (<?php echo date("Y - M")?>)</h3>
+                        <h3>Pelanggaran Per-Kelas (<?php echo date("Y - M")?>)</h3>
                         <canvas id="myChart4" style="max-width: 600px;"></canvas>
                     </div>
                 </div>
