@@ -9,8 +9,8 @@
     <link href="<?php echo base_url()?>assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
     <link href="<?php echo base_url()?>assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="<?php echo base_url()?>assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
-    <link href="<?php echo base_url()?>assets/css/style.css" rel="stylesheet" />
     <link href="<?php echo base_url()?>assets/css/main-style.css" rel="stylesheet" />
+    <link href="<?php echo base_url()?>assets/css/style.css" rel="stylesheet" />
 
 </head>
 
@@ -50,7 +50,7 @@
                                 <span style="color:#d32132"></span>
                                 <div class="pull-right" style="padding-top:30px"> <button type="submit" class="btn btn-info">&nbsp;&nbsp;Login&nbsp;&nbsp;
                             </fieldset>
-                        </form>
+                    <?php echo form_close(); ?>
                     </div>
                 </div>
             </div>

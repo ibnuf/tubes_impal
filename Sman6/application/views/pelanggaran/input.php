@@ -261,7 +261,7 @@
                                         <div class="form-group" id="kerajinan">
                                             <label>DESKRIPSI KERAJINAN</label>
                                             <select class="form-control" name="deskripsiPelanggaranKerajinan" class="a">
-                                                <option value="">-- pilih jenis pelanggaran --</option>
+                                                <option value="">-- Pilih Jenis Pelanggaran --</option>
                                                 <?php foreach ($list_kerajinan as $kl) { ?>
                                                     <option onclick="get_poin('<?php echo $kl->value?>')" value="<?php echo $kl->name; ?>"><?php echo $kl->name?>
                                                 <?php

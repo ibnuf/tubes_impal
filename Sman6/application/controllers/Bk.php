@@ -16,6 +16,7 @@
 				
 		public function admin_page(){
 			$data['nama']=$this->session->userdata('nama');
+			$this->load->view('header',$data);
 			$this->load->view('home',$data);
 		}
 
@@ -44,7 +45,11 @@
 		}
 
 		public function simpan_surat(){
-			$this->Model_bk->insert_surat();
+			if($this->Model_bk->insert_surat()){
+		    	$this->session->set_flashdata('input','<div class="alert alert-success">Data berhasil diinput!</div>');
+			}else{
+		    	$this->session->set_flashdata('input','<div class="alert alert-danger">Data gagal diinput!</div>');
+			}
 			redirect('bk/data_pelanggaran_siswa');
 		}
 
@@ -61,8 +66,12 @@
 		}
 
 		public function simpan_pelanggaran() {
-			$this->Model_bk->insert_pelanggaran();
-			redirect('bk/form_input_pelanggaran');
+			if($this->Model_bk->insert_pelanggaran()){
+		    	$this->session->set_flashdata('input','<div class="alert alert-success">Data berhasil diinput!</div>');
+			}else{
+		    	$this->session->set_flashdata('input','<div class="alert alert-danger">Data gagal diinput!</div>');
+			}
+			redirect('bk/data_pelanggaran_siswa');
 		}
 		
 		

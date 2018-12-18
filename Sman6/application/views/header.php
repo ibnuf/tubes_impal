@@ -4,18 +4,22 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootsrtap Free Admin Template - SIMINTA | Admin Dashboad Template</title>
+    <title>APESI - SMAN 6 Surabaya</title>
     <!-- Core CSS - Include with every page -->
     <link href="<?php echo base_url()?>assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
     <link href="<?php echo base_url()?>assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="<?php echo base_url()?>assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
-    <link href="<?php echo base_url()?>assets/css/style.css" rel="stylesheet" />
-    <link href="<?php echo base_url()?>assets/css/main-style.css" rel="stylesheet" />
+    <link href="<?php echo base_url()?>assets/css/main-style.css?<?php echo time(); ?>" rel="stylesheet" />
+    <link href="<?php echo base_url()?>assets/bootstrapchart/css/mdb.min.css" rel="stylesheet" />
+    <link href="<?php echo base_url()?>assets/bootstrapchart/css/style.min.css" rel="stylesheet" />
     <!-- Page-Level CSS -->
     <link href="<?php echo base_url()?>assets/plugins/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    
     <link href="<?php echo base_url()?>css/gaya.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/scripts/jquery-1.4.3.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/bootstrapchart/js/mdb.min.js"></script>
 
+    <link href="<?php echo base_url()?>assets/css/style.css" rel="stylesheet" />
     <script type="text/javascript">
             $(document).ready(function() {
                 des();
@@ -62,29 +66,13 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="index.html">
-                    <img src="<?php echo base_url()?>assets/img/logoSmanam.jpg" alt="" class="img-square" style="width:100px; height: 45px" />
+                    <span><img src="<?php echo base_url()?>assets/img/logoSmanam.jpg" alt="" class="img-square" style="height: 55px;" />
+                    <h2 id="logo_text" style='display:inline;'>APESI - SMAN 6 Surabaya</h2></span>
                 </a>      
             </div>
             <!-- end navbar-header -->
             <!-- navbar-top-links -->
             <ul class="nav navbar-top-links navbar-right">
-                <!-- main dropdown   
-                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <span class="top-label label label-warning" id="notifications"></span>  <i class="fa fa-bell fa-3x"></i>
-                    </a>
-                    <!-- dropdown alerts
-                    <ul class="dropdown-menu dropdown-alerts" id="kontent">
-                        
-                        <li class="divider" id="kontent"></li>
-                        <li>
-                            <a class="text-center" href="<?php echo base_url() ?>index.php/rapat/nn" class="list-group-item text-right" >
-                                <strong>See All Alerts</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- end dropdown-alerts -->
                 </li>
                 <!--- dropdown logout -->                  
                 <li class="dropdown">
@@ -93,7 +81,6 @@
                     </a>
                     <!-- dropdown user-->
                     <ul class="dropdown-menu dropdown-user">
-                        <li class="divider"></li>
                         <li><a href="<?php echo site_url()?>/login/logout"><i class="fa fa-sign-out fa-fw"></i> Keluar</a>
                         </li>
                     </ul>
@@ -119,8 +106,7 @@
                                 <img src="<?php echo base_url()?>assets/img/user.png" alt="">
                             </div>
                             <div class="user-info">
-                                <div>Guru <strong>BK</strong>
-                                    <?php echo ($this->session->userdata('$role')); ?>
+                                <div><div><?php echo $nama?></div>
                                 </div>
                                 <div class="user-text-online">
                                     <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
@@ -178,9 +164,9 @@
                     <li>
                         <a href="<?php echo site_url()?>/bk/dataSiswa"><i class="fa fa-files-o fa-fw"> </i> Data Siswa</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="<?php echo site_url()?>/bk/dataSurat"><i class="fa fa-envelope fa-fw"></i> Data Surat Terkirim</a>
-                    </li>
+                    </li> -->
                     <li>
                         <a href="<?php echo site_url()?>/bk/wali_kelas"><i class="fa fa-book fa-fw"> </i> Kelola Guru </a>
                     </li>
@@ -194,99 +180,3 @@
             </div>
             <!-- end sidebar-collapse -->
         </nav>
-        <!-- end navbar side -->s
- 
-        <!--  page-wrapper -->
-          <div id="page-wrapper">
-            <div class="row">
-                 <!-- page header -->
-                <div class="col-lg-12">
-                    <h4 class="page-header">Tambah Data Orang Tua Siswa</h4>
-                </div>
-                <!--end page header -->
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <!-- Form Elements -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Silahkan Isi Data Lengkap Orang Tua Siswa
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-8">
-                                    <form role="form" action="<?php echo base_url();?>index.php/bk/simpan_orangtua" method="post">
-                                        
-										<div class="form-group">
-                                            <label>Nama Orang Tua</label>
-                                            <input required class="form-control" name="namaOrangTua" placeholder="Nama Orang Tua" >
-                                        </div>
-																		
-										<div class="form-group">
-                                            <label>NIS Anak</label>
-                                            <input required class="form-control" name="idSiswa" onkeypress="return hanyaAngka(event)" placeholder="NIS Siswa" >
-
-                                        </div>
-                                            <div class="form-group">
-                                            <label>Alamat</label>
-                                            <textarea required class="form-control" name="alamatOrangTua" placeholder="Alamat Orang Tua"> </textarea>
-                                        </div>
-
-                                        <div>
-                                            <div class="form-group">
-                                            <label>Kota</label>
-                                            <input required class="form-control" name="kotaOrangTua" placeholder="Kota Orang Tua" >
-                                        </div>
-                                        
-                                        <div>
-                                            <div class="form-group">
-                                            <label>Provinsi</label>
-                                            <input required class="form-control" name="provinsiOrangTua" placeholder="Provinsi Orang Tua" >
-                                        </div>
-
-                                        <div>
-                                            <div class="form-group">
-                                            <label>No Tlp Rumah</label>
-                                            <input required class="form-control" name="noTlpOrangTua" placeholder="No. Tlp Rumah Orang Tua" type="number">
-                                        </div>
-                                        
-                                        <div>
-                                            <div class="form-group">
-                                            <label>No HP</label>
-                                            <input required class="form-control" name="noHpOrangTua" placeholder="No. HP Orang Tua" type="number">
-                                        </div>
-
-                                        <button type="submit" class="btn btn-primary">Simpan Data Orang Tua</button>
-                                        <button type="reset" class="btn btn-success">Kosongkan Form</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                     <!-- End Form Elements -->
-                </div>
-            </div>
-        </div>
-        <!-- end page-wrapper -->
-
-    </div>
-    <!-- end wrapper -->
-
-    <!-- Core Scripts - Include with every page -->
-    <script src="<?php echo base_url()?>assets/plugins/jquery-1.10.2.js"></script>
-    <script src="<?php echo base_url()?>assets/plugins/bootstrap/bootstrap.min.js"></script>
-    <script src="<?php echo base_url()?>assets/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="<?php echo base_url()?>assets/plugins/pace/pace.js"></script>
-    <script src="<?php echo base_url()?>assets/scripts/siminta.js"></script>
-       <script>
-        function hanyaAngka(evt) {
-          var charCode = (evt.which) ? evt.which : event.keyCode
-           if (charCode > 31 && (charCode < 48 || charCode > 57))
- 
-            return false;
-          return true;
-        }
-    </script>
-</body>
-
-</html>

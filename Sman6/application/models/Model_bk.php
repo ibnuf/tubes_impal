@@ -131,6 +131,7 @@ class Model_bk extends CI_Model{
 				,'$jenisPelanggaran','$tanggalPelanggaran','$jamPelanggaran'
 				,'$deskripsi','$poinPelanggaran')");
 			}
+			return ture;
 
 	}
 	
