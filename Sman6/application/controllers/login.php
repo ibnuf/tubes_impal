@@ -32,7 +32,7 @@
 		   		 }
 		    redirect('walikelas/index');
 		   }else{
-		    $this->session->set_flashdata('pesan_gagal','Maaf, kombinasi password dan username salah !');
+		    $this->session->set_flashdata('login','<p id="texterror">Maaf, kombinasi password dan username salah !</p>');
 		    $this->load->view('v_form_login');
 		   	}
 		  }

@@ -38,15 +38,13 @@
                     <?php echo form_open('login');?>
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Username" name="username" type="username">
+                                    <input class="form-control" placeholder="Username" name="username" type="username" required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" required>
                                 </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                                    </label>
+                                <div class="clearfix">
+                                    <?php echo $this->session->flashdata('login'); ?>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
                                 <span style="color:#d32132"></span>
