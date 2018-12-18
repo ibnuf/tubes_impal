@@ -266,7 +266,7 @@
 										
 										<div class="form-group">
                                             <label>No Hp Siswa</label>
-                                            <input required class="form-control" name="noHpSiswa" placeholder="No Hp Siswa">
+                                            <input required class="form-control" name="noHpSiswa" placeholder="No Hp Siswa" type="number">
                                         </div>
                                         
                                         

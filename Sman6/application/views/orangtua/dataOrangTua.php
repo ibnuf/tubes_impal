@@ -209,30 +209,15 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                <tr>
-                    <td><strong>
-                         Upload data orang tua dari file excel&nbsp
-                         </strong>
-                    </td>
-                    <td>
-                        <?php echo form_open_multipart('bk/do_upload_orangTua');?>
-                        <input type="file" name="userfile">
-                    </td>
-                    <td>
-                       <input type="submit" name="name" value="Upload File">
-                    </td>
-                    </form>
-                    </tr>
-                    <br>
                     <!-- Advanced Tables -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                             Tabel Peraturan
-                        </div>                       
+                    <div class="panel panel-default">      
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                <a href="<?php echo site_url()?>/bk/form_input_OrangTua"><i class="fa fa-plus fa-fw"></i>Tambah Data Orang Tua</a>
+                                <button type="button" class="btn btn-primary" style="margin-bottom: 20px;">
+                                    <a style="color:white;" href="<?php echo site_url()?>/bk/form_input_OrangTua">
+                                    <i class="fa fa-plus fa-fw"></i>Tambah Data Orang Tua</a>
+                                </button>
                                     <thead>
                                         <tr style="font-family: Cambria,"Times New Roman",serif;>
                                             <th>No</th>

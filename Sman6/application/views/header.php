@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="icon" href="<?php echo base_url()?>assets/img/logoSmanam.jpg" type="image/png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APESI - SMAN 6 Surabaya</title>
@@ -102,7 +103,7 @@
                     <li>
                         <!-- user image section-->
                         <div class="user-section">
-                            <div class="user-section-inner">
+                            <span><div class="user-section-inner">
                                 <img src="<?php echo base_url()?>assets/img/user.png" alt="">
                             </div>
                             <div class="user-info">
@@ -112,6 +113,7 @@
                                     <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
                                 </div>
                             </div>
+                            </span>
                         </div>
                         <!--end user image section-->
                     </li>
@@ -129,15 +131,15 @@
                                 <a href="<?php echo site_url()?>/bk/data_pelanggaran_siswa"><i class="fa fa-table fa-fw"></i> Data Pelangaran Sikap</a>
                             </li>
                             
-                            <li>
+                            <!-- <li>
                                 <a href="<?php echo site_url()?>/bk/display_chart"><i class="fa fa-bar-chart-o"></i> Grafik Pelanggaran Sikap</a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="<?php echo site_url()?>/bk/kelas_terbaik"><i class="fa fa-bar-chart-o"></i> Kelola Kelas Terbaik</a>
                             </li>
-                             <li>
+                             <!-- <li>
                                 <a href="<?php echo site_url()?>/bk/history"><i class="fa fa-bar-chart-o"></i> History Pelanggaran Sikap</a>
-                            </li>
+                            </li> -->
                         </ul>
                         <!-- second-level-items -->
                     </li>

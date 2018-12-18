@@ -246,8 +246,10 @@
                             <div class="panel-body">
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <a href="<?php echo site_url()?>/bk/form_input_siswa"><i class="fa fa-plus fa-fw"></i>Tambah Data Siswa</a>
-                                       <thead>
+                                        <button type="button" class="btn btn-primary" style="margin-bottom: 20px;">
+                                            <a style="color:white;" href="<?php echo site_url()?>/bk/form_input_siswa"><i class="fa fa-plus fa-fw"></i>Tambah Data Siswa</a>
+                                        </button>
+                                        <thead>
                                             <tr style="font-family: Cambria,"Times New Roman",serif;>
                                                 <th>No</th>
                                                 <th>Tahun Ajaran</th>
