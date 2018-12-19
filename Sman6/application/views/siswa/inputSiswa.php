@@ -130,7 +130,7 @@
                         <!--end user image section-->
                     </li>
                     <li>
-                        <a href="<?php echo site_url()?>/bk/admin_page"><i class="fa fa-home fa-fw"></i> Beranda</a>
+                        <a href="<?php echo site_url()?>/bk/admin_page"><i class="fa fa-home fa-fw"></i> Dashboard</a>
                     </li>                
                     
                     <li>
@@ -266,7 +266,7 @@
 										
 										<div class="form-group">
                                             <label>No Hp Siswa</label>
-                                            <input required class="form-control" name="noHpSiswa" placeholder="No Hp Siswa">
+                                            <input required class="form-control" name="noHpSiswa" placeholder="No Hp Siswa" type="number">
                                         </div>
                                         
                                         

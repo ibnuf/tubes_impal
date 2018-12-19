@@ -130,7 +130,7 @@
                         <!--end user image section-->
                     </li>
                     <li>
-                        <a href="<?php echo site_url()?>/bk/admin_page"><i class="fa fa-home fa-fw"></i> Beranda</a>
+                        <a href="<?php echo site_url()?>/bk/admin_page"><i class="fa fa-home fa-fw"></i> Dashboard</a>
                     </li>                
                     
                     <li>
@@ -261,7 +261,7 @@
                                         <div class="form-group" id="kerajinan">
                                             <label>DESKRIPSI KERAJINAN</label>
                                             <select class="form-control" name="deskripsiPelanggaranKerajinan" class="a">
-                                                <option value="">-- pilih jenis pelanggaran --</option>
+                                                <option value="">-- Pilih Jenis Pelanggaran --</option>
                                                 <?php foreach ($list_kerajinan as $kl) { ?>
                                                     <option onclick="get_poin('<?php echo $kl->value?>')" value="<?php echo $kl->name; ?>"><?php echo $kl->name?>
                                                 <?php

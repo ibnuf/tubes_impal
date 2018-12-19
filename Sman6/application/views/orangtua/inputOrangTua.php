@@ -130,7 +130,7 @@
                         <!--end user image section-->
                     </li>
                     <li>
-                        <a href="<?php echo site_url()?>/bk/admin_page"><i class="fa fa-home fa-fw"></i> Beranda</a>
+                        <a href="<?php echo site_url()?>/bk/admin_page"><i class="fa fa-home fa-fw"></i> Dashboard</a>
                     </li>                
                     
                     <li>
@@ -247,13 +247,13 @@
                                         <div>
                                             <div class="form-group">
                                             <label>No Tlp Rumah</label>
-                                            <input required class="form-control" name="noTlpOrangTua" placeholder="No. Tlp Rumah Orang Tua" >
+                                            <input required class="form-control" name="noTlpOrangTua" placeholder="No. Tlp Rumah Orang Tua" type="number">
                                         </div>
                                         
                                         <div>
                                             <div class="form-group">
                                             <label>No HP</label>
-                                            <input required class="form-control" name="noHpOrangTua" placeholder="No. HP Orang Tua" >
+                                            <input required class="form-control" name="noHpOrangTua" placeholder="No. HP Orang Tua" type="number">
                                         </div>
 
                                         <button type="submit" class="btn btn-primary">Simpan Data Orang Tua</button>

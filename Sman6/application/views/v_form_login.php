@@ -9,8 +9,8 @@
     <link href="<?php echo base_url()?>assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
     <link href="<?php echo base_url()?>assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="<?php echo base_url()?>assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
-    <link href="<?php echo base_url()?>assets/css/style.css" rel="stylesheet" />
     <link href="<?php echo base_url()?>assets/css/main-style.css" rel="stylesheet" />
+    <link href="<?php echo base_url()?>assets/css/style.css" rel="stylesheet" />
 
 </head>
 
@@ -38,21 +38,19 @@
                     <?php echo form_open('login');?>
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Username" name="username" type="username">
+                                    <input class="form-control" placeholder="Username" name="username" type="username" required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" required>
                                 </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                                    </label>
+                                <div class="clearfix">
+                                    <?php echo $this->session->flashdata('login'); ?>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
                                 <span style="color:#d32132"></span>
                                 <div class="pull-right" style="padding-top:30px"> <button type="submit" class="btn btn-info">&nbsp;&nbsp;Login&nbsp;&nbsp;
                             </fieldset>
-                        </form>
+                    <?php echo form_close(); ?>
                     </div>
                 </div>
             </div>

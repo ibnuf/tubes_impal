@@ -130,7 +130,7 @@
                         <!--end user image section-->
                     </li>
                     <li>
-                        <a href="<?php echo site_url()?>/bk/admin_page"><i class="fa fa-home fa-fw"></i> Beranda</a>
+                        <a href="<?php echo site_url()?>/bk/admin_page"><i class="fa fa-home fa-fw"></i> Dashboard</a>
                     </li>                
                     
                     <li>
@@ -210,10 +210,8 @@
                 <div class="col-lg-12">
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                        
-                        </div>
                         <div class="panel-body">
+                            <?php  echo $this->session->flashdata('input'); ?>
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
