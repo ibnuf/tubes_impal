@@ -20,7 +20,7 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/scripts/jquery-1.4.3.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/bootstrapchart/js/mdb.min.js"></script>
 
-    <link href="<?php echo base_url()?>assets/css/style.css" rel="stylesheet" />
+    <link href="<?php echo base_url()?>assets/css/style.css?<?php echo time(); ?>" rel="stylesheet" />
     <script type="text/javascript">
             $(document).ready(function() {
                 des();
@@ -135,7 +135,7 @@
                                 <a href="<?php echo site_url()?>/bk/display_chart"><i class="fa fa-bar-chart-o"></i> Grafik Pelanggaran Sikap</a>
                             </li>
                             <li>
-                                <a href="<?php echo site_url()?>/bk/kelas_terbaik"><i class="fa fa-bar-chart-o"></i> Kelola Kelas Terbaik</a>
+                                <a href="<?php echo site_url()?>/bk/kelas_terbaik"><i class="fa fa-bar-chart-o"></i> Kelola Pelanggaran Per Kelas</a>
                             </li>
                              <!-- <li>
                                 <a href="<?php echo site_url()?>/bk/history"><i class="fa fa-bar-chart-o"></i> History Pelanggaran Sikap</a>

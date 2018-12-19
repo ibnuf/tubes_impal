@@ -28,6 +28,13 @@ limitations under the License.*/
     background-color: #f8f8f8;
 }
 
+table td, table th {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+button.btn.btn-primary,button.btn.btn-success {
+    font-size: 14px;
+}
 h2#logo_text{
     color: #f8f8f8; 
     font-family: 'Signika', sans-serif;

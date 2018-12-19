@@ -34,6 +34,9 @@
 			$data['list_kerapihan'] = $this->Model_bk->get_list_kerapihan();
 			$data['list_kerajinan'] = $this->Model_bk->get_list_kerajinan();
 			$data['list_larangan_siswa'] = $this->Model_bk->get_list_laranganSiswa();
+			
+			$data['nama']=$this->session->userdata('nama');
+			$this->load->view('header', $data);
 			$this->load->view('pelanggaran/input', $data);
 		}
 
@@ -77,6 +80,8 @@
 		
 		public function data_pelanggaran_siswa(){
 			$data['list_data']=$this->Model_bk->get_data_pelanggaran();
+			$data['nama']=$this->session->userdata('nama');
+			$this->load->view('header', $data);
 			$this->load->view('pelanggaran/data_pelanggaran',$data);
 		}
 		
@@ -259,6 +264,9 @@
 		//awal data orang tua siswa
 		public function orangTuaSiswa(){
 			$data['list_data']=$this->Model_bk->get_dataOrangTua();
+
+			$data['nama']=$this->session->userdata('nama');
+			$this->load->view('header',$data);
 			$this->load->view('orangtua/dataOrangTua',$data);
 		}
 
